@@ -37,7 +37,7 @@
     <!-- metadata -->
     <meta name="og:title" content="Vitess / vtctlReference"/>
     <meta name="og:image" content="/images/vitess-logo-large-cropped-2.png"/>
-    <meta name="og:description" content="Servers and tools that scale MySQL databases for the web in cloud architectures or on dedicated hardware."/>
+    <meta name="og:description" content="Vitess is a database clustering system for horizontal scaling of MySQL."/>
 
     
     <script>
@@ -933,6 +933,7 @@
 <li><a href="#vttabletexecute">VtTabletExecute</a></li>
 <li><a href="#vttabletrollback">VtTabletRollback</a></li>
 <li><a href="#vttabletstreamhealth">VtTabletStreamHealth</a></li>
+<li><a href="#vttabletupdatestream">VtTabletUpdateStream</a></li>
 </ul>
 
 <h3 id="vtgateexecute">VtGateExecute</h3>
@@ -941,7 +942,7 @@
 
 <h4 id="example">Example</h4>
 
-<pre class="command-example">VtGateExecute -server &lt;vtgate&gt; [-bind_variables &lt;JSON map&gt;] [-connect_timeout &lt;connect timeout&gt;] [-keyspace &lt;default keyspace&gt;] [-tablet_type &lt;tablet type&gt;] [-json] &lt;sql&gt;</pre>
+<pre class="command-example">VtGateExecute -server &lt;vtgate&gt; [-bind_variables &lt;JSON map&gt;] [-connect_timeout &lt;connect timeout&gt;] [-keyspace &lt;default keyspace&gt;] [-tablet_type &lt;tablet type&gt;] [-options &lt;proto text options&gt;] [-json] &lt;sql&gt;</pre>
 
 <h4 id="flags">Flags</h4>
 
@@ -966,6 +967,11 @@
 <td style="text-align: left">keyspace</td>
 <td style="text-align: left">string</td>
 <td style="text-align: left">default keyspace to use</td>
+</tr>
+<tr>
+<td style="text-align: left">options</td>
+<td style="text-align: left">string</td>
+<td style="text-align: left">execute options values as a text encoded proto of the ExecuteOptions structure</td>
 </tr>
 <tr>
 <td style="text-align: left">server</td>
@@ -1000,7 +1006,7 @@
 
 <h4 id="example">Example</h4>
 
-<pre class="command-example">VtGateExecuteKeyspaceIds -server &lt;vtgate&gt; -keyspace &lt;keyspace&gt; -keyspace_ids &lt;ks1 in hex&gt;,&lt;k2 in hex&gt;,... [-bind_variables &lt;JSON map&gt;] [-connect_timeout &lt;connect timeout&gt;] [-tablet_type &lt;tablet type&gt;] [-json] &lt;sql&gt;</pre>
+<pre class="command-example">VtGateExecuteKeyspaceIds -server &lt;vtgate&gt; -keyspace &lt;keyspace&gt; -keyspace_ids &lt;ks1 in hex&gt;,&lt;k2 in hex&gt;,... [-bind_variables &lt;JSON map&gt;] [-connect_timeout &lt;connect timeout&gt;] [-tablet_type &lt;tablet type&gt;] [-options &lt;proto text options&gt;] [-json] &lt;sql&gt;</pre>
 
 <h4 id="flags">Flags</h4>
 
@@ -1030,6 +1036,11 @@
 <td style="text-align: left">keyspace_ids</td>
 <td style="text-align: left">string</td>
 <td style="text-align: left">comma-separated list of keyspace ids (in hex) that will map into shards to send query to</td>
+</tr>
+<tr>
+<td style="text-align: left">options</td>
+<td style="text-align: left">string</td>
+<td style="text-align: left">execute options values as a text encoded proto of the ExecuteOptions structure</td>
 </tr>
 <tr>
 <td style="text-align: left">server</td>
@@ -1067,7 +1078,7 @@
 
 <h4 id="example">Example</h4>
 
-<pre class="command-example">VtGateExecuteShards -server &lt;vtgate&gt; -keyspace &lt;keyspace&gt; -shards &lt;shard0&gt;,&lt;shard1&gt;,... [-bind_variables &lt;JSON map&gt;] [-connect_timeout &lt;connect timeout&gt;] [-tablet_type &lt;tablet type&gt;] [-json] &lt;sql&gt;</pre>
+<pre class="command-example">VtGateExecuteShards -server &lt;vtgate&gt; -keyspace &lt;keyspace&gt; -shards &lt;shard0&gt;,&lt;shard1&gt;,... [-bind_variables &lt;JSON map&gt;] [-connect_timeout &lt;connect timeout&gt;] [-tablet_type &lt;tablet type&gt;] [-options &lt;proto text options&gt;] [-json] &lt;sql&gt;</pre>
 
 <h4 id="flags">Flags</h4>
 
@@ -1092,6 +1103,11 @@
 <td style="text-align: left">keyspace</td>
 <td style="text-align: left">string</td>
 <td style="text-align: left">keyspace to send query to</td>
+</tr>
+<tr>
+<td style="text-align: left">options</td>
+<td style="text-align: left">string</td>
+<td style="text-align: left">execute options values as a text encoded proto of the ExecuteOptions structure</td>
 </tr>
 <tr>
 <td style="text-align: left">server</td>
@@ -1276,7 +1292,7 @@
 
 <h4 id="example">Example</h4>
 
-<pre class="command-example">VtTabletExecute [-bind_variables &lt;JSON map&gt;] [-connect_timeout &lt;connect timeout&gt;] [-transaction_id &lt;transaction_id&gt;] [-tablet_type &lt;tablet_type&gt;] [-json] -keyspace &lt;keyspace&gt; -shard &lt;shard&gt; &lt;tablet alias&gt; &lt;sql&gt;</pre>
+<pre class="command-example">VtTabletExecute [-bind_variables &lt;JSON map&gt;] [-connect_timeout &lt;connect timeout&gt;] [-transaction_id &lt;transaction_id&gt;] [-tablet_type &lt;tablet_type&gt;] [-options &lt;proto text options&gt;] [-json] -keyspace &lt;keyspace&gt; -shard &lt;shard&gt; &lt;tablet alias&gt; &lt;sql&gt;</pre>
 
 <h4 id="flags">Flags</h4>
 
@@ -1296,6 +1312,11 @@
 <td style="text-align: left">json</td>
 <td style="text-align: left">Boolean</td>
 <td style="text-align: left">Output JSON instead of human-readable table</td>
+</tr>
+<tr>
+<td style="text-align: left">options</td>
+<td style="text-align: left">string</td>
+<td style="text-align: left">execute options values as a text encoded proto of the ExecuteOptions structure</td>
 </tr>
 <tr>
 <td style="text-align: left">transaction_id</td>
@@ -1407,6 +1428,60 @@
 <li>stream ended early: %v</li>
 </ul>
 
+<h3 id="vttabletupdatestream">VtTabletUpdateStream</h3>
+
+<p>Executes the UpdateStream streaming query to a vttablet process. Will stop after getting &lt;count&gt; answers.</p>
+
+<h4 id="example">Example</h4>
+
+<pre class="command-example">VtTabletUpdateStream [-count &lt;count, default 1&gt;] [-connect_timeout &lt;connect timeout&gt;] [-position &lt;position&gt;] [-timestamp &lt;timestamp&gt;] &lt;tablet alias&gt;</pre>
+
+<h4 id="flags">Flags</h4>
+
+<table><thead>
+<tr>
+<th style="text-align: left">Name</th>
+<th style="text-align: left">Type</th>
+<th style="text-align: left">Definition</th>
+</tr>
+</thead><tbody>
+<tr>
+<td style="text-align: left">connect_timeout</td>
+<td style="text-align: left">Duration</td>
+<td style="text-align: left">Connection timeout for vttablet client</td>
+</tr>
+<tr>
+<td style="text-align: left">count</td>
+<td style="text-align: left">Int</td>
+<td style="text-align: left">number of responses to wait for</td>
+</tr>
+<tr>
+<td style="text-align: left">position</td>
+<td style="text-align: left">string</td>
+<td style="text-align: left">position to start the stream from</td>
+</tr>
+<tr>
+<td style="text-align: left">timestamp</td>
+<td style="text-align: left">Int</td>
+<td style="text-align: left">timestamp to start the stream from</td>
+</tr>
+</tbody></table>
+
+<h4 id="arguments">Arguments</h4>
+
+<ul>
+<li><code>&lt;count default 1&gt;</code> &ndash; Required.</li>
+<li><code>&lt;tablet alias&gt;</code> &ndash; Required. A Tablet Alias uniquely identifies a vttablet. The argument value is in the format <code>&lt;cell name&gt;-&lt;uid&gt;</code>.</li>
+</ul>
+
+<h4 id="errors">Errors</h4>
+
+<ul>
+<li>The <code>&lt;tablet alias&gt;</code> argument is required for the <code>&lt;VtTabletUpdateStream&gt;</code> command. This error occurs if the command is not called with exactly one argument.</li>
+<li>cannot connect to tablet %v: %v</li>
+<li>stream ended early: %v</li>
+</ul>
+
 <h2 id="replication-graph">Replication Graph</h2>
 
 <ul>
@@ -1437,8 +1512,89 @@
 <h2 id="resharding-throttler">Resharding Throttler</h2>
 
 <ul>
+<li><a href="#getthrottlerconfiguration">GetThrottlerConfiguration</a></li>
+<li><a href="#resetthrottlerconfiguration">ResetThrottlerConfiguration</a></li>
 <li><a href="#throttlermaxrates">ThrottlerMaxRates</a></li>
 <li><a href="#throttlersetmaxrate">ThrottlerSetMaxRate</a></li>
+<li><a href="#updatethrottlerconfiguration">UpdateThrottlerConfiguration</a></li>
+</ul>
+
+<h3 id="getthrottlerconfiguration">GetThrottlerConfiguration</h3>
+
+<p>Returns the current configuration of the MaxReplicationLag module. If no throttler name is specified, the configuration of all throttlers will be returned.</p>
+
+<h4 id="example">Example</h4>
+
+<pre class="command-example">GetThrottlerConfiguration -server &lt;vtworker or vttablet&gt; [&lt;throttler name&gt;]</pre>
+
+<h4 id="flags">Flags</h4>
+
+<table><thead>
+<tr>
+<th style="text-align: left">Name</th>
+<th style="text-align: left">Type</th>
+<th style="text-align: left">Definition</th>
+</tr>
+</thead><tbody>
+<tr>
+<td style="text-align: left">server</td>
+<td style="text-align: left">string</td>
+<td style="text-align: left">vtworker or vttablet to connect to</td>
+</tr>
+</tbody></table>
+
+<h4 id="arguments">Arguments</h4>
+
+<ul>
+<li><code>&lt;vtworker or vttablet&gt;</code> &ndash; Required.</li>
+<li><code>&lt;throttler name&gt;</code> &ndash; Optional.</li>
+</ul>
+
+<h4 id="errors">Errors</h4>
+
+<ul>
+<li>the <code>&lt;GetThrottlerConfiguration&gt;</code> command accepts only <code>&lt;throttler name&gt;</code> as optional positional parameter This error occurs if the command is not called with more than 1 arguments.</li>
+<li>error creating a throttler client for <code>&lt;server&gt;</code> &#39;%v&#39;: %v</li>
+<li>failed to get the throttler configuration from <code>&lt;server&gt;</code> &#39;%v&#39;: %v</li>
+</ul>
+
+<h3 id="resetthrottlerconfiguration">ResetThrottlerConfiguration</h3>
+
+<p>Resets the current configuration of the MaxReplicationLag module. If no throttler name is specified, the configuration of all throttlers will be reset.</p>
+
+<h4 id="example">Example</h4>
+
+<pre class="command-example">ResetThrottlerConfiguration -server &lt;vtworker or vttablet&gt; [&lt;throttler name&gt;]</pre>
+
+<h4 id="flags">Flags</h4>
+
+<table><thead>
+<tr>
+<th style="text-align: left">Name</th>
+<th style="text-align: left">Type</th>
+<th style="text-align: left">Definition</th>
+</tr>
+</thead><tbody>
+<tr>
+<td style="text-align: left">server</td>
+<td style="text-align: left">string</td>
+<td style="text-align: left">vtworker or vttablet to connect to</td>
+</tr>
+</tbody></table>
+
+<h4 id="arguments">Arguments</h4>
+
+<ul>
+<li><code>&lt;vtworker or vttablet&gt;</code> &ndash; Required.</li>
+<li><code>&lt;throttler name&gt;</code> &ndash; Optional.</li>
+</ul>
+
+<h4 id="errors">Errors</h4>
+
+<ul>
+<li>the <code>&lt;ResetThrottlerConfiguration&gt;</code> command accepts only <code>&lt;throttler name&gt;</code> as optional positional parameter This error occurs if the command is not called with more than 1 arguments.</li>
+<li>error creating a throttler client for <code>&lt;server&gt;</code> &#39;%v&#39;: %v</li>
+<li>failed to get the throttler configuration from <code>&lt;server&gt;</code> &#39;%v&#39;: %v</li>
 </ul>
 
 <h3 id="throttlermaxrates">ThrottlerMaxRates</h3>
@@ -1517,6 +1673,50 @@
 <li>failed to parse rate &#39;%v&#39; as integer value: %v</li>
 <li>error creating a throttler client for <code>&lt;server&gt;</code> &#39;%v&#39;: %v</li>
 <li>failed to set the throttler rate on <code>&lt;server&gt;</code> &#39;%v&#39;: %v</li>
+</ul>
+
+<h3 id="updatethrottlerconfiguration">UpdateThrottlerConfiguration</h3>
+
+<p>Updates the configuration of the MaxReplicationLag module. The configuration must be specified as protobuf text. If a field is omitted or has a zero value, it will be ignored unless -copy_zero_values is specified. If no throttler name is specified, all throttlers will be updated.</p>
+
+<h4 id="example">Example</h4>
+
+<pre class="command-example">UpdateThrottlerConfiguration `-server &lt;vtworker or vttablet&gt; [-copy_zero_values] "&lt;configuration protobuf text&gt;" [&lt;throttler name&gt;]`</pre>
+
+<h4 id="flags">Flags</h4>
+
+<table><thead>
+<tr>
+<th style="text-align: left">Name</th>
+<th style="text-align: left">Type</th>
+<th style="text-align: left">Definition</th>
+</tr>
+</thead><tbody>
+<tr>
+<td style="text-align: left">copy_zero_values</td>
+<td style="text-align: left">Boolean</td>
+<td style="text-align: left">If true, fields with zero values will be copied as well</td>
+</tr>
+<tr>
+<td style="text-align: left">server</td>
+<td style="text-align: left">string</td>
+<td style="text-align: left">vtworker or vttablet to connect to</td>
+</tr>
+</tbody></table>
+
+<h4 id="arguments">Arguments</h4>
+
+<ul>
+<li><code>&lt;vtworker or vttablet&gt;</code> &ndash; Required.</li>
+<li><code>&lt;throttler name&gt;</code> &ndash; Optional.</li>
+</ul>
+
+<h4 id="errors">Errors</h4>
+
+<ul>
+<li>Failed to unmarshal the configuration protobuf text (%v) into a protobuf instance: %v</li>
+<li>error creating a throttler client for <code>&lt;server&gt;</code> &#39;%v&#39;: %v</li>
+<li>failed to update the throttler configuration on <code>&lt;server&gt;</code> &#39;%v&#39;: %v</li>
 </ul>
 
 <h2 id="schema-version-permissions">Schema, Version, Permissions</h2>
@@ -2172,7 +2372,7 @@
 
 <h4 id="example">Example</h4>
 
-<pre class="command-example">EmergencyReparentShard &lt;keyspace/shard&gt; &lt;tablet alias&gt;</pre>
+<pre class="command-example">EmergencyReparentShard -keyspace_shard=&lt;keyspace/shard&gt; -new_master=&lt;tablet alias&gt;</pre>
 
 <h4 id="flags">Flags</h4>
 
@@ -2184,22 +2384,27 @@
 </tr>
 </thead><tbody>
 <tr>
+<td style="text-align: left">keyspace_shard</td>
+<td style="text-align: left">string</td>
+<td style="text-align: left">keyspace/shard of the shard that needs to be reparented</td>
+</tr>
+<tr>
+<td style="text-align: left">new_master</td>
+<td style="text-align: left">string</td>
+<td style="text-align: left">alias of a tablet that should be the new master</td>
+</tr>
+<tr>
 <td style="text-align: left">wait_slave_timeout</td>
 <td style="text-align: left">Duration</td>
 <td style="text-align: left">time to wait for slaves to catch up in reparenting</td>
 </tr>
 </tbody></table>
 
-<h4 id="arguments">Arguments</h4>
-
-<ul>
-<li><code>&lt;tablet alias&gt;</code> &ndash; Required. A Tablet Alias uniquely identifies a vttablet. The argument value is in the format <code>&lt;cell name&gt;-&lt;uid&gt;</code>.</li>
-</ul>
-
 <h4 id="errors">Errors</h4>
 
 <ul>
-<li>action <code>&lt;EmergencyReparentShard&gt;</code> requires <code>&lt;keyspace/shard&gt;</code> <code>&lt;tablet alias&gt;</code> This error occurs if the command is not called with exactly 2 arguments.</li>
+<li>action <code>&lt;EmergencyReparentShard&gt;</code> requires -keyspace_shard=<code>&lt;keyspace/shard&gt;</code> -new_master=<code>&lt;tablet alias&gt;</code> This error occurs if the command is not called with exactly 0 arguments.</li>
+<li>cannot use legacy syntax and flag -<code>&lt;new_master&gt;</code> for action <code>&lt;EmergencyReparentShard&gt;</code> at the same time</li>
 </ul>
 
 <h3 id="getshard">GetShard</h3>
@@ -2300,11 +2505,11 @@
 
 <h3 id="plannedreparentshard">PlannedReparentShard</h3>
 
-<p>Reparents the shard to the new master. Both old and new master need to be up and running.</p>
+<p>Reparents the shard to the new master, or away from old master. Both old and new master need to be up and running.</p>
 
 <h4 id="example">Example</h4>
 
-<pre class="command-example">PlannedReparentShard &lt;keyspace/shard&gt; &lt;tablet alias&gt;</pre>
+<pre class="command-example">PlannedReparentShard -keyspace_shard=&lt;keyspace/shard&gt; [-new_master=&lt;tablet alias&gt;] [-avoid_master=&lt;tablet alias&gt;]</pre>
 
 <h4 id="flags">Flags</h4>
 
@@ -2316,22 +2521,32 @@
 </tr>
 </thead><tbody>
 <tr>
+<td style="text-align: left">avoid_master</td>
+<td style="text-align: left">string</td>
+<td style="text-align: left">alias of a tablet that should not be the master, i.e. reparent to any other tablet if this one is the master</td>
+</tr>
+<tr>
+<td style="text-align: left">keyspace_shard</td>
+<td style="text-align: left">string</td>
+<td style="text-align: left">keyspace/shard of the shard that needs to be reparented</td>
+</tr>
+<tr>
+<td style="text-align: left">new_master</td>
+<td style="text-align: left">string</td>
+<td style="text-align: left">alias of a tablet that should be the new master</td>
+</tr>
+<tr>
 <td style="text-align: left">wait_slave_timeout</td>
 <td style="text-align: left">Duration</td>
 <td style="text-align: left">time to wait for slaves to catch up in reparenting</td>
 </tr>
 </tbody></table>
 
-<h4 id="arguments">Arguments</h4>
-
-<ul>
-<li><code>&lt;tablet alias&gt;</code> &ndash; Required. A Tablet Alias uniquely identifies a vttablet. The argument value is in the format <code>&lt;cell name&gt;-&lt;uid&gt;</code>.</li>
-</ul>
-
 <h4 id="errors">Errors</h4>
 
 <ul>
-<li>action <code>&lt;PlannedReparentShard&gt;</code> requires <code>&lt;keyspace/shard&gt;</code> <code>&lt;tablet alias&gt;</code> This error occurs if the command is not called with exactly 2 arguments.</li>
+<li>action <code>&lt;PlannedReparentShard&gt;</code> requires -keyspace_shard=<code>&lt;keyspace/shard&gt;</code> [-new_master=<code>&lt;tablet alias&gt;</code>] [-avoid_master=<code>&lt;tablet alias&gt;</code>] This error occurs if the command is not called with exactly 0 arguments.</li>
+<li>cannot use legacy syntax and flags -<code>&lt;keyspace_shard&gt;</code> and -<code>&lt;new_master&gt;</code> for action <code>&lt;PlannedReparentShard&gt;</code> at the same time</li>
 </ul>
 
 <h3 id="removebackup">RemoveBackup</h3>
@@ -3357,7 +3572,7 @@
     
     <a href="https://groups.google.com/forum/#!forum/vitess" target="_blank">Contact: vitess@googlegroups.com</a>&nbsp;&nbsp;<b>·</b>&nbsp;&nbsp;
     <a href="https://groups.google.com/forum/#!forum/vitess-announce" target="_blank">Announcements</a>&nbsp;&nbsp;<b>·</b>&nbsp;&nbsp;
-    &#169; 2016 <a href="/">Vitess</a> powered by <a href="http://www.google.com">Google Inc</a>
+    &#169; 2016 <a href="/">Vitess</a> powered by <a href="https://developers.google.com/open-source/">Google Inc</a>
   </nav>
 </footer>
 

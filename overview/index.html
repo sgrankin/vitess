@@ -37,7 +37,7 @@
     <!-- metadata -->
     <meta name="og:title" content="Vitess / Understanding Vitess "/>
     <meta name="og:image" content="/images/vitess-logo-large-cropped-2.png"/>
-    <meta name="og:description" content="Servers and tools that scale MySQL databases for the web in cloud architectures or on dedicated hardware."/>
+    <meta name="og:description" content="Vitess is a database clustering system for horizontal scaling of MySQL."/>
 
     
     <script>
@@ -245,9 +245,17 @@ traffic since 2011.</p>
 
 <h2 id="vitess-on-kubernetes">Vitess on Kubernetes</h2>
 
-<p>Kubernetes is an open-source orchestration system for Docker containers, and Vitess is the logical storage engine choice for Kubernetes users.</p>
+<p><a href="http://kubernetes.io/">Kubernetes</a> is an open-source orchestration system for Docker containers, and Vitess can run as a Kubernetes-aware cloud native distributed database.</p>
 
-<p>Kubernetes handles scheduling onto nodes in a compute cluster, actively manages workloads on those nodes, and groups containers comprising an application for easy management and discovery. Using Kubernetes, you can easily create and manage a Vitess cluster, out of the box.</p>
+<p>Kubernetes handles scheduling onto nodes in a compute cluster, actively manages workloads on those nodes, and groups containers comprising an application for easy management and discovery.
+This provides an analogous open-source environment to the way Vitess runs in YouTube,
+on the <a href="http://blog.kubernetes.io/2015/04/borg-predecessor-to-kubernetes.html">predecessor to Kubernetes</a>.</p>
+
+<div style="text-align:center">
+<a class="btn btn-default btn-lg" href="/getting-started/" role="button" style="margin-bottom:16px">
+<img src="/images/kubernetes.svg" style="width:30px;height:30px;margin-top:-5px">
+Quickstart</a>
+</div>
 
 <h2 id="comparisons-to-other-storage-options">Comparisons to other storage options</h2>
 
@@ -489,7 +497,7 @@ it to the needs of your infrastructure.</p>
     
     <a href="https://groups.google.com/forum/#!forum/vitess" target="_blank">Contact: vitess@googlegroups.com</a>&nbsp;&nbsp;<b>·</b>&nbsp;&nbsp;
     <a href="https://groups.google.com/forum/#!forum/vitess-announce" target="_blank">Announcements</a>&nbsp;&nbsp;<b>·</b>&nbsp;&nbsp;
-    &#169; 2016 <a href="/">Vitess</a> powered by <a href="http://www.google.com">Google Inc</a>
+    &#169; 2016 <a href="/">Vitess</a> powered by <a href="https://developers.google.com/open-source/">Google Inc</a>
   </nav>
 </footer>
 

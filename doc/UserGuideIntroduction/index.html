@@ -37,7 +37,7 @@
     <!-- metadata -->
     <meta name="og:title" content="Vitess / UserGuideIntroduction"/>
     <meta name="og:image" content="/images/vitess-logo-large-cropped-2.png"/>
-    <meta name="og:description" content="Servers and tools that scale MySQL databases for the web in cloud architectures or on dedicated hardware."/>
+    <meta name="og:description" content="Vitess is a database clustering system for horizontal scaling of MySQL."/>
 
     
     <script>
@@ -239,21 +239,14 @@
       <div id="centerTextCol">
         <h2 id="platform-support">Platform support</h2>
 
-<p>Vitess runs on either Ubuntu 14.04 (Trusty) or Debian 7.0 (Wheezy).
-You can run Vitess on local hardware or as the storage engine in a
-Kubernetes cluster.</p>
+<p>We continuously test against Ubuntu 14.04 (Trusty) and Debian 8 (Jessie).
+Other Linux distributions should work as well.</p>
 
 <h2 id="database-support">Database support</h2>
 
-<p>Vitess supports <a href="http://dev.mysql.com/doc/refman/5.6/en/">MySQL 5.6</a>
-and <a href="https://downloads.mariadb.org/mariadb/10.0.21/">MariaDB 10.0</a>
-implementations.</p>
-
-<p><strong>Note:</strong> If you are using MariaDB, you must install version 10.0 or
-higher. If you are using an <code>apt</code> repository, confirm that
-it offers an option to install that version. You can also download the
-source directly from
-<a href="https://downloads.mariadb.org/mariadb/10.0.21/">mariadb.org</a>.</p>
+<p>Vitess supports <a href="http://dev.mysql.com/doc/refman/5.6/en/">MySQL 5.6</a>,
+<a href="http://dev.mysql.com/doc/refman/5.7/en/">MySQL 5.7</a>,
+and <a href="https://downloads.mariadb.org/mariadb/10.0.21/">MariaDB 10.0</a>.</p>
 
 <h3 id="data-types-and-sql-support">Data types and SQL support</h3>
 
@@ -261,12 +254,9 @@ source directly from
 can use relational modeling schemes (normalization) to structure your
 schema. Vitess supports both primary and secondary indexes.</p>
 
-<p>Vitess supports all MySQL data types, which translate into almost all
-usual scalar data types. It also provides full SQL support within a
+<p>Vitess supports almost all MySQL scalar data types.
+It also provides full SQL support within a
 <a href="/overview/concepts.html#shard">shard</a>, including JOIN statements.</p>
-
-<p>The maximum size/value is 16MB per cell/row. In addition, the limit
-on the total database size is in the tens of TB.</p>
 
 <p>Vitess does not currently support encoded protobufs or protocol buffer
 querying. (The latter is also known as cracking.) Protocol buffers can
@@ -326,24 +316,20 @@ client libraries and other clients that Vitess supports.</p>
 </thead><tbody>
 <tr>
 <td style="text-align: left">Client library</td>
-<td style="text-align: left"><a href="http://www.grpc.io/">gRPC</a><br class="bigbreak">C++<br class="bigbreak">Go<br class="bigbreak">Java<br class="bigbreak">Python</td>
+<td style="text-align: left"><a href="http://www.grpc.io/">gRPC</a><br class="bigbreak">Go<br class="bigbreak">Java<br class="bigbreak">Python<br class="bigbreak">PHP</td>
 </tr>
 <tr>
 <td style="text-align: left">MapReduce</td>
 <td style="text-align: left"><a href="https://hadoop.apache.org/docs/r2.7.0/api/org/apache/hadoop/mapreduce/InputFormat.html">Hadoop input</a></td>
 </tr>
-<tr>
-<td style="text-align: left">Cloud Dataflow</td>
-<td style="text-align: left"><strong><em>coming soon</em></strong></td>
-</tr>
 </tbody></table>
 
 <h2 id="backups">Backups</h2>
 
-<p>Vitess supports data backups to an NFS directory and can use any
-network-mounted drive as the backup repository. Vitess defines an
-interface that, in turn, defines methods for creating, listing,
-and removing backups.</p>
+<p>Vitess supports data backups to either a network mount (e.g. NFS) or to a blob store.
+Backup storage is implemented through a pluggable interface,
+and we currently have plugins available for Google Cloud Storage, Amazon S3,
+and Ceph.</p>
 
 <p>See the <a href="/user-guide/backup-and-restore.html">Backing Up Data</a> section
 of this guide for more information about creating and restoring data
@@ -361,7 +347,7 @@ backups with Vitess.</p>
     
     <a href="https://groups.google.com/forum/#!forum/vitess" target="_blank">Contact: vitess@googlegroups.com</a>&nbsp;&nbsp;<b>·</b>&nbsp;&nbsp;
     <a href="https://groups.google.com/forum/#!forum/vitess-announce" target="_blank">Announcements</a>&nbsp;&nbsp;<b>·</b>&nbsp;&nbsp;
-    &#169; 2016 <a href="/">Vitess</a> powered by <a href="http://www.google.com">Google Inc</a>
+    &#169; 2016 <a href="/">Vitess</a> powered by <a href="https://developers.google.com/open-source/">Google Inc</a>
   </nav>
 </footer>
 

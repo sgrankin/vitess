@@ -37,7 +37,7 @@
     <!-- metadata -->
     <meta name="og:title" content="Vitess / Vitess API Reference"/>
     <meta name="og:image" content="/images/vitess-logo-large-cropped-2.png"/>
-    <meta name="og:description" content="Servers and tools that scale MySQL databases for the web in cloud architectures or on dedicated hardware."/>
+    <meta name="og:description" content="Vitess is a database clustering system for horizontal scaling of MySQL."/>
 
     
     <script>
@@ -361,6 +361,10 @@
 <td style="text-align: left"><code>as_transaction</code> <br>bool</td>
 <td style="text-align: left">as_transaction will execute the queries in this batch in a single transaction per shard, created for this purpose. (this can be seen as adding a &#39;begin&#39; before and &#39;commit&#39; after the queries). Only makes sense if tablet_type is master. If set, the Session is ignored.</td>
 </tr>
+<tr>
+<td style="text-align: left"><code>options</code> <br><a href="#query.executeoptions">query.ExecuteOptions</a></td>
+<td style="text-align: left">ExecuteOptions is passed around for all Execute calls.</td>
+</tr>
 </tbody></table>
 
 <h4 id="response">Response</h4>
@@ -436,6 +440,10 @@
 <tr>
 <td style="text-align: left"><code>not_in_transaction</code> <br>bool</td>
 <td style="text-align: left">not_in_transaction is deprecated and should not be used.</td>
+</tr>
+<tr>
+<td style="text-align: left"><code>options</code> <br><a href="#query.executeoptions">query.ExecuteOptions</a></td>
+<td style="text-align: left">ExecuteOptions is passed around for all Execute calls.</td>
 </tr>
 </tbody></table>
 
@@ -535,6 +543,10 @@
 <td style="text-align: left"><code>not_in_transaction</code> <br>bool</td>
 <td style="text-align: left">not_in_transaction is deprecated and should not be used.</td>
 </tr>
+<tr>
+<td style="text-align: left"><code>options</code> <br><a href="#query.executeoptions">query.ExecuteOptions</a></td>
+<td style="text-align: left">ExecuteOptions is passed around for all Execute calls.</td>
+</tr>
 </tbody></table>
 
 <h4 id="response">Response</h4>
@@ -607,6 +619,10 @@
 <td style="text-align: left"><code>not_in_transaction</code> <br>bool</td>
 <td style="text-align: left">not_in_transaction is deprecated and should not be used.</td>
 </tr>
+<tr>
+<td style="text-align: left"><code>options</code> <br><a href="#query.executeoptions">query.ExecuteOptions</a></td>
+<td style="text-align: left">ExecuteOptions is passed around for all Execute calls.</td>
+</tr>
 </tbody></table>
 
 <h4 id="response">Response</h4>
@@ -671,6 +687,10 @@
 <td style="text-align: left"><code>tablet_type</code> <br><a href="#topodata.tablettype">topodata.TabletType</a></td>
 <td style="text-align: left">TabletType represents the type of a given tablet.</td>
 </tr>
+<tr>
+<td style="text-align: left"><code>options</code> <br><a href="#query.executeoptions">query.ExecuteOptions</a></td>
+<td style="text-align: left">ExecuteOptions is passed around for all Execute calls.</td>
+</tr>
 </tbody></table>
 
 <h4 id="response">Response</h4>
@@ -726,6 +746,10 @@
 <tr>
 <td style="text-align: left"><code>tablet_type</code> <br><a href="#topodata.tablettype">topodata.TabletType</a></td>
 <td style="text-align: left">TabletType represents the type of a given tablet.</td>
+</tr>
+<tr>
+<td style="text-align: left"><code>options</code> <br><a href="#query.executeoptions">query.ExecuteOptions</a></td>
+<td style="text-align: left">ExecuteOptions is passed around for all Execute calls.</td>
 </tr>
 </tbody></table>
 
@@ -907,6 +931,10 @@
 <td style="text-align: left"><code>as_transaction</code> <br>bool</td>
 <td style="text-align: left">as_transaction will execute the queries in this batch in a single transaction per shard, created for this purpose. (this can be seen as adding a &#39;begin&#39; before and &#39;commit&#39; after the queries). Only makes sense if tablet_type is master. If set, the Session is ignored.</td>
 </tr>
+<tr>
+<td style="text-align: left"><code>options</code> <br><a href="#query.executeoptions">query.ExecuteOptions</a></td>
+<td style="text-align: left">ExecuteOptions is passed around for all Execute calls.</td>
+</tr>
 </tbody></table>
 
 <h4 id="response">Response</h4>
@@ -979,6 +1007,10 @@
 <td style="text-align: left"><code>not_in_transaction</code> <br>bool</td>
 <td style="text-align: left">not_in_transaction is deprecated and should not be used.</td>
 </tr>
+<tr>
+<td style="text-align: left"><code>options</code> <br><a href="#query.executeoptions">query.ExecuteOptions</a></td>
+<td style="text-align: left">ExecuteOptions is passed around for all Execute calls.</td>
+</tr>
 </tbody></table>
 
 <h4 id="response">Response</h4>
@@ -1042,6 +1074,10 @@
 <tr>
 <td style="text-align: left"><code>tablet_type</code> <br><a href="#topodata.tablettype">topodata.TabletType</a></td>
 <td style="text-align: left">TabletType represents the type of a given tablet.</td>
+</tr>
+<tr>
+<td style="text-align: left"><code>options</code> <br><a href="#query.executeoptions">query.ExecuteOptions</a></td>
+<td style="text-align: left">ExecuteOptions is passed around for all Execute calls.</td>
 </tr>
 </tbody></table>
 
@@ -1287,6 +1323,10 @@
 <td style="text-align: left"><code>keyspace</code> <br>string</td>
 <td style="text-align: left">keyspace to target the query to.</td>
 </tr>
+<tr>
+<td style="text-align: left"><code>options</code> <br><a href="#query.executeoptions">query.ExecuteOptions</a></td>
+<td style="text-align: left">ExecuteOptions is passed around for all Execute calls.</td>
+</tr>
 </tbody></table>
 
 <h4 id="response">Response</h4>
@@ -1346,6 +1386,10 @@
 <tr>
 <td style="text-align: left"><code>keyspace</code> <br>string</td>
 <td style="text-align: left">keyspace to target the query to.</td>
+</tr>
+<tr>
+<td style="text-align: left"><code>options</code> <br><a href="#query.executeoptions">query.ExecuteOptions</a></td>
+<td style="text-align: left">ExecuteOptions is passed around for all Execute calls.</td>
 </tr>
 </tbody></table>
 
@@ -1842,6 +1886,50 @@
 </tr>
 </tbody></table>
 
+<h3 id="query-eventtoken">query.EventToken</h3>
+
+<p>EventToken is a structure that describes a point in time in a replication stream on one shard. The most recent known replication position can be retrieved from vttablet when executing a query. It is also sent with the replication streams from the binlog service.</p>
+
+<h4 id="properties">Properties</h4>
+
+<table><thead>
+<tr>
+<th style="text-align: left">Name</th>
+<th style="text-align: left">Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td style="text-align: left"><code>timestamp</code> <br>int64</td>
+<td style="text-align: left">timestamp is the MySQL timestamp of the statements. Seconds since Epoch.</td>
+</tr>
+<tr>
+<td style="text-align: left"><code>shard</code> <br>string</td>
+<td style="text-align: left">The shard name that applied the statements. Note this is not set when streaming from a vttablet. It is only used on the client -&gt; vtgate link.</td>
+</tr>
+<tr>
+<td style="text-align: left"><code>position</code> <br>string</td>
+<td style="text-align: left">The position on the replication stream after this statement was applied. It is not the transaction ID / GTID, but the position / GTIDSet.</td>
+</tr>
+</tbody></table>
+
+<h3 id="query-executeoptions">query.ExecuteOptions</h3>
+
+<p>ExecuteOptions is passed around for all Execute calls.</p>
+
+<h4 id="properties">Properties</h4>
+
+<table><thead>
+<tr>
+<th style="text-align: left">Name</th>
+<th style="text-align: left">Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td style="text-align: left"><code>exclude_field_names</code> <br>bool</td>
+<td style="text-align: left">If set, the resulting Field array won’t have a Name, just a Type. This is an optimization for high-QPS queries where the client knows what it&#39;s getting.</td>
+</tr>
+</tbody></table>
+
 <h3 id="query-field">query.Field</h3>
 
 <p>Field describes a single column returned by a query</p>
@@ -1913,6 +2001,94 @@
 <tr>
 <td style="text-align: left"><code>values</code> <br>bytes</td>
 <td style="text-align: left">values contains a concatenation of all values in the row.</td>
+</tr>
+</tbody></table>
+
+<h3 id="query-streamevent">query.StreamEvent</h3>
+
+<p>StreamEvent describes a set of transformations that happened as a single transactional unit on a server. It is streamed back by the Update Stream calls.</p>
+
+<h4 id="properties">Properties</h4>
+
+<table><thead>
+<tr>
+<th style="text-align: left">Name</th>
+<th style="text-align: left">Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td style="text-align: left"><code>statements</code> <br>list &lt;<a href="#streamevent.statement">Statement</a>&gt;</td>
+<td style="text-align: left">The statements in this transaction.</td>
+</tr>
+<tr>
+<td style="text-align: left"><code>event_token</code> <br><a href="#query.eventtoken">EventToken</a></td>
+<td style="text-align: left">EventToken is a structure that describes a point in time in a replication stream on one shard. The most recent known replication position can be retrieved from vttablet when executing a query. It is also sent with the replication streams from the binlog service.</td>
+</tr>
+</tbody></table>
+
+<h4 id="messages">Messages</h4>
+
+<h5 id="streamevent-statement">StreamEvent.Statement</h5>
+
+<p>One individual Statement in a transaction.</p>
+
+<p><em>Properties</em></p>
+
+<table><thead>
+<tr>
+<th style="text-align: left">Name</th>
+<th style="text-align: left">Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td style="text-align: left"><code>category</code> <br><a href="#streamevent.statement.category">Category</a></td>
+<td style="text-align: left"></td>
+</tr>
+<tr>
+<td style="text-align: left"><code>table_name</code> <br>string</td>
+<td style="text-align: left">table_name, primary_key_fields and primary_key_values are set for DML.</td>
+</tr>
+<tr>
+<td style="text-align: left"><code>primary_key_fields</code> <br>list &lt;<a href="#query.field">Field</a>&gt;</td>
+<td style="text-align: left">Field describes a single column returned by a query</td>
+</tr>
+<tr>
+<td style="text-align: left"><code>primary_key_values</code> <br>list &lt;<a href="#query.row">Row</a>&gt;</td>
+<td style="text-align: left">Row is a database row.</td>
+</tr>
+<tr>
+<td style="text-align: left"><code>sql</code> <br>bytes</td>
+<td style="text-align: left">sql is set for all queries. FIXME(alainjobart) we may not need it for DMLs.</td>
+</tr>
+</tbody></table>
+
+<h4 id="enums">Enums</h4>
+
+<h5 id="streamevent-statement-category">StreamEvent.Statement.Category</h5>
+
+<p>One individual Statement in a transaction. The category of one statement.</p>
+
+<table><thead>
+<tr>
+<th style="text-align: left">Name</th>
+<th style="text-align: left">Value</th>
+<th style="text-align: left">Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td style="text-align: left"><code>Error</code></td>
+<td style="text-align: left"><code>0</code></td>
+<td style="text-align: left"></td>
+</tr>
+<tr>
+<td style="text-align: left"><code>DML</code></td>
+<td style="text-align: left"><code>1</code></td>
+<td style="text-align: left"></td>
+</tr>
+<tr>
+<td style="text-align: left"><code>DDL</code></td>
+<td style="text-align: left"><code>2</code></td>
+<td style="text-align: left"></td>
 </tr>
 </tbody></table>
 
@@ -2142,7 +2318,7 @@
     
     <a href="https://groups.google.com/forum/#!forum/vitess" target="_blank">Contact: vitess@googlegroups.com</a>&nbsp;&nbsp;<b>·</b>&nbsp;&nbsp;
     <a href="https://groups.google.com/forum/#!forum/vitess-announce" target="_blank">Announcements</a>&nbsp;&nbsp;<b>·</b>&nbsp;&nbsp;
-    &#169; 2016 <a href="/">Vitess</a> powered by <a href="http://www.google.com">Google Inc</a>
+    &#169; 2016 <a href="/">Vitess</a> powered by <a href="https://developers.google.com/open-source/">Google Inc</a>
   </nav>
 </footer>
 

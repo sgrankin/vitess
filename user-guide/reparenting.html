@@ -37,7 +37,7 @@
     <!-- metadata -->
     <meta name="og:title" content="Vitess / Reparenting"/>
     <meta name="og:image" content="/images/vitess-logo-large-cropped-2.png"/>
-    <meta name="og:description" content="Servers and tools that scale MySQL databases for the web in cloud architectures or on dedicated hardware."/>
+    <meta name="og:description" content="Vitess is a database clustering system for horizontal scaling of MySQL."/>
 
     
     <script>
@@ -263,7 +263,7 @@ replicate from that master.</p>
 
 <h2 id="mysql-requirements">MySQL requirements</h2>
 
-<p>Vitess supports <a href="https://dev.mysql.com/doc/refman/5.6/en/replication-gtids-howto.html">MySQL 5.6</a>, <a href="https://dev.mysql.com/doc/refman/5.7/en/replication-gtids-howto.html">MySQL 5.7</a> and <a href="https://mariadb.com/kb/en/mariadb/global-transaction-id/">MariaDB</a> implementations.</p>
+<p>Vitess supports <a href="https://dev.mysql.com/doc/refman/5.6/en/replication-gtids-howto.html">MySQL 5.6</a>, <a href="https://dev.mysql.com/doc/refman/5.7/en/replication-gtids-howto.html">MySQL 5.7</a> and <a href="https://mariadb.com/kb/en/mariadb/global-transaction-id/">MariaDB 10.0</a> implementations.</p>
 
 <h3 id="gtids">GTIDs</h3>
 
@@ -436,11 +436,7 @@ by starting <code>vtctld</code> with the
 <code>--disable_active_reparents</code> flag set to <code>true</code>.
 (You cannot set the flag after <code>vtctld</code> is started.)</p>
 
-<h2 id="reparenting-and-serving-graph">Reparenting And Serving Graph</h2>
-
-<p>During the reparenting process, Vitess shuffles servers such that servers
-might be demoted, or promoted. The <strong>serving graph</strong> should
-reflect the latest state of the service.</p>
+<h2 id="fixing-replication">Fixing Replication</h2>
 
 <p>A tablet can be orphaned after a reparenting if it is unavailable
 when the reparent operation is running but then recovers later on.
@@ -463,7 +459,7 @@ command.</p>
     
     <a href="https://groups.google.com/forum/#!forum/vitess" target="_blank">Contact: vitess@googlegroups.com</a>&nbsp;&nbsp;<b>·</b>&nbsp;&nbsp;
     <a href="https://groups.google.com/forum/#!forum/vitess-announce" target="_blank">Announcements</a>&nbsp;&nbsp;<b>·</b>&nbsp;&nbsp;
-    &#169; 2016 <a href="/">Vitess</a> powered by <a href="http://www.google.com">Google Inc</a>
+    &#169; 2016 <a href="/">Vitess</a> powered by <a href="https://developers.google.com/open-source/">Google Inc</a>
   </nav>
 </footer>
 

@@ -37,7 +37,7 @@
     <!-- metadata -->
     <meta name="og:title" content="Vitess / Sharding"/>
     <meta name="og:image" content="/images/vitess-logo-large-cropped-2.png"/>
-    <meta name="og:description" content="Servers and tools that scale MySQL databases for the web in cloud architectures or on dedicated hardware."/>
+    <meta name="og:description" content="Vitess is a database clustering system for horizontal scaling of MySQL."/>
 
     
     <script>
@@ -299,37 +299,6 @@ a single shard in the application&#39;s &quot;user&quot; keyspace. On the other 
 a query that retrieves information about several products might be
 directed to one or more shards in the application&#39;s &quot;product&quot; keyspace.</p>
 
-<h3 id="sharding-keys">Sharding Keys</h3>
-
-<p>As discussed above, Vitess calculates the sharding keys associated
-with any particular query and then routes the query to the appropriate
-shards.</p>
-
-<p>Vitess supports two types of sharding keys:</p>
-
-<ul>
-<li><p><strong>Binary data:</strong> The key is an array of bytes. Vitess uses regular
-byte-array comparison to determine which shard should handle the
-query. The MySQL representation for this type of sharding key is
-a <code>VARBINARY</code> field.</p></li>
-<li><p><strong>64-bit unsigned integer:</strong> Vitess converts the 64-bit integer into
-a byte array by copying the bytes, most significant byte first,
-into 8 bytes. Vitess then uses byte-array comparison to identify the
-right shards to handle the query. The MySQL representation for this
-type of sharding key is a <code>bigint(20) UNSIGNED</code> field.</p></li>
-</ul>
-
-<p>A sharded keyspace contains information about the type of sharding key
-that the keyspace uses. Each database table in the shard has a column
-that stores the sharding key associated with each row in the table. The
-sharding key column in each table has the same name and column type.</p>
-
-<p>A common example of a sharding key is the 64-bit hash of a user ID. The
-hashing function ensures that the sharding keys are evenly distributed
-in the space.</p>
-
-<p><strong>Note:</strong> If the vtgate v3 API is used, the sharding key value is no longer materialized. Instead, vtgate can calculate it on the fly when reading and inserting data. (A valid VSchema is required to tell vtgate how to calculate the sharding key value.)</p>
-
 <h3 id="key-ranges-and-partitions">Key Ranges and Partitions</h3>
 
 <p>Vitess uses key ranges to determine which shards should handle any
@@ -503,7 +472,7 @@ to iterate over the data on multiple shards.</p>
     
     <a href="https://groups.google.com/forum/#!forum/vitess" target="_blank">Contact: vitess@googlegroups.com</a>&nbsp;&nbsp;<b>·</b>&nbsp;&nbsp;
     <a href="https://groups.google.com/forum/#!forum/vitess-announce" target="_blank">Announcements</a>&nbsp;&nbsp;<b>·</b>&nbsp;&nbsp;
-    &#169; 2016 <a href="/">Vitess</a> powered by <a href="http://www.google.com">Google Inc</a>
+    &#169; 2016 <a href="/">Vitess</a> powered by <a href="https://developers.google.com/open-source/">Google Inc</a>
   </nav>
 </footer>
 
