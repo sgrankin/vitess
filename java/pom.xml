@@ -60,6 +60,13 @@
             <archive>https://groups.google.com/forum/#!forum/vitess</archive>
         </mailingList>
     </mailingLists>
+    <distributionManagement>
+        <repository>
+            <id>bintray-sgrankin-maven</id>
+            <name>sgrankin-maven</name>
+            <url>https://api.bintray.com/maven/sgrankin/maven/vitess/;publish=1</url>
+        </repository>
+    </distributionManagement>
 
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
